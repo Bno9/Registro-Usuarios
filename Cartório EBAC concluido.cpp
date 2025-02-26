@@ -80,6 +80,7 @@ int registro()
 			{
 			case 1:
 				registro();
+				return 0;  // esse return 0 é necessário para o loop não ficar infinito. Toda vez que o loop se repete ele meio que gera +1 repetição onde o return zero do caso 2 não consegue sair do programa na primeira tentativa. Adicionando esse return 0 na primeira opção, faz com que ele sempre fique no 0 a 0
 				break;
 				
 			case 2:
@@ -90,12 +91,8 @@ int registro()
                 printf("Esta opção não está disponível!\n\n");
                 system("pause");
                 break;
-			}
-		
+			}		
 	}
-	
-
-	
 } 
 
 int consultar()
@@ -122,6 +119,7 @@ int consultar()
 	{
 		printf("Essas são as informações do usuário:\n");
 	}
+	
 		while(fgets(conteudo, 200, file) != NULL)
 	{
 		printf("%s", conteudo);
@@ -145,6 +143,7 @@ int consultar()
 		{
 			case 1:
 				consultar();
+				return 0;
 				break;
 				
 			case 2:
@@ -156,8 +155,7 @@ int consultar()
                 system("pause");
                 break;
 		}
-		}
-		
+			}
 		system("pause");
 	}
 
@@ -202,6 +200,7 @@ int deletar()
 			{
 			case 1:
 				deletar();
+				return 0;
 				break;
 				
 			case 2:
@@ -214,7 +213,6 @@ int deletar()
                 break;
 			}
 		}
-		
 		system("pause");
 }
 
@@ -232,7 +230,7 @@ int main() //variavel
 		
 		printf("### Cartório EBAC ###\n\n");
 		printf("Escolha um menu:\n\n");
-    	printf("\t1- Registrar nomes"); printf("\t2- Consultar nomes");    printf("\t3- Deletar nomes \n\n\n");
+    	printf("\t1- Registrar nomes"); printf("\t2- Consultar nomes");    printf("\t3- Deletar nomes");    printf("\t4- Sair do programa \n\n\n");
 	 	printf("Opção:");
 		scanf("%d", &opcao); //armazenando escolha do usuario
 		system("cls"); //clear
@@ -250,6 +248,10 @@ switch(opcao)
 
     case 3:
     deletar();
+    break;
+    
+    case 4:
+    return 0;
     break;
 
     default:
