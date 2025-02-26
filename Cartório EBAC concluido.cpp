@@ -13,6 +13,8 @@ int registro()
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
+	int laco = 1;
+	int resposta = 1;
 	
 	printf("Digite o CPF a ser cadastrado: ");
 	scanf("%s",cpf);
@@ -64,6 +66,36 @@ int registro()
 	
 	system("pause");
 	
+		while(laco == 1)
+	{
+		system("cls");
+		printf("Deseja registrar outro usuario?\n\n");
+		printf("Digite 1 para registrar e 2 para sair\n\n");
+		
+		scanf("%d", &resposta);
+		
+		system("cls");
+		
+		switch(resposta)
+			{
+			case 1:
+				registro();
+				break;
+				
+			case 2:
+				return 0;
+				break;
+				 
+			default:
+                printf("Esta opção não está disponível!\n\n");
+                system("pause");
+                break;
+			}
+		
+	}
+	
+
+	
 } 
 
 int consultar()
@@ -72,6 +104,8 @@ int consultar()
 	
 	char cpf[40];
 	char conteudo[200];
+	int resposta =0;
+	int laco = 1;
 	
 	printf ("Digite o CPF a ser consultado: ");
 	scanf("%s",cpf);
@@ -94,6 +128,36 @@ int consultar()
 		printf("\n");
 	}
 		fclose(file);
+		
+		system("pause");
+		
+		while(laco == 1)
+		{
+		system("cls");
+		printf("Deseja consultar outro nome?\n");
+		printf("Digite 1 para consultar e 2 para sair\n\n");	
+		
+		scanf("%d", &resposta);
+		
+		system("cls");
+		
+		switch(resposta)
+		{
+			case 1:
+				consultar();
+				break;
+				
+			case 2:
+				return 0;
+				break;
+				 
+			default:
+                printf("Esta opção não está disponível!\n\n");
+                system("pause");
+                break;
+		}
+		}
+		
 		system("pause");
 	}
 
@@ -101,6 +165,8 @@ int deletar()
 { 
 	setlocale(LC_ALL, "Portuguese");
 	char cpf[40];
+	int resposta = 1;
+	int laco = 1;
 	
 	printf("Digite o cpf do usuário a ser deletado: ");
 	scanf("%s", cpf);
@@ -119,6 +185,36 @@ int deletar()
 		remove(cpf);
 		printf("CPF removido com sucesso\n");
 	}
+	
+	system("pause");
+	
+	
+	while(laco == 1){
+		system("cls");
+		printf("Deseja deletar outro nome?\n");
+		printf("Digite 1 para deletar e 2 para sair\n\n");
+		
+		scanf("%d", &resposta);
+		
+		system("cls");
+		
+		switch(resposta)
+			{
+			case 1:
+				deletar();
+				break;
+				
+			case 2:
+				return 0;
+				break;
+				 
+			default:
+                printf("Esta opção não está disponível!\n\n");
+                system("pause");
+                break;
+			}
+		}
+		
 		system("pause");
 }
 
